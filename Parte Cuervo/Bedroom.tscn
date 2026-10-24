@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://3olcxmjuqyrv"]
+
+[ext_resource type="Texture2D" uid="uid://wqe5w1qodg2k" path="res://Sprites/BG/Bedroom.png" id="1_6ggsp"]
+[ext_resource type="Script" uid="uid://d2a0i3xy7x2cy" path="res://character_body_2d.gd" id="2_4eogf"]
+[ext_resource type="SpriteFrames" uid="uid://8ddiid6l2e5w" path="res://Sprites/Character/Char.tres" id="3_2tlio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c87yd"]
+size = Vector2(44, 66)
+
+[node name="Node2D" type="Node2D" unique_id=1354351727]
+
+[node name="Room" type="TextureRect" parent="." unique_id=228340580]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.57172
+offset_top = -248.0
+offset_right = 349.57172
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6ggsp")
+
+[node name="Walls" type="StaticBody2D" parent="Room" unique_id=764002882]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Walls" unique_id=46812861]
+position = Vector2(3, 2)
+scale = Vector2(1.0251865, 1.0251865)
+build_mode = 1
+polygon = PackedVector2Array(219, 126, 219.0545, 279.94907, 136.14278, 279.94907, 137.1182, 335.5487, 22.992615, 336.52414, 22, 457, 261, 456, 260, 427, 375, 427, 375, 457, 504, 456, 500, 418, 654, 416, 653.1219, 230.20203, 578.989, 231.17746, 577, 122, 443, 123, 444.37936, 209.71794, 348.78702, 209.71794, 349, 123)
+
+[node name="Hiding spots" type="Node2D" parent="Room" unique_id=37114103]
+
+[node name="Bed hide" type="Area2D" parent="Room/Hiding spots" unique_id=1343914041]
+
+[node name="bed" type="CollisionPolygon2D" parent="Room/Hiding spots/Bed hide" unique_id=1492805364]
+polygon = PackedVector2Array(478, 159, 479, 271, 345, 271, 345, 159)
+
+[node name="Closet hide" type="Area2D" parent="Room/Hiding spots" unique_id=770440375]
+
+[node name="closet" type="CollisionPolygon2D" parent="Room/Hiding spots/Closet hide" unique_id=688990857]
+polygon = PackedVector2Array(585, 265, 585, 332, 675, 332, 675, 265)
+
+[node name="Table hide" type="Area2D" parent="Room/Hiding spots" unique_id=969824924]
+
+[node name="table_b" type="CollisionPolygon2D" parent="Room/Hiding spots/Table hide" unique_id=1683580975]
+position = Vector2(-3, 1)
+polygon = PackedVector2Array(254, 469, 254, 420, 409, 420, 409, 469)
+
+[node name="Area2D" type="Area2D" parent="Room" unique_id=247994899]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Area2D" unique_id=420626879]
+polygon = PackedVector2Array(673.5717, 371, 652.5717, 371, 652.5717, 428, 673.5717, 428)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1559731698]
+zoom = Vector2(1.25, 1.25)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1031160033]
+position = Vector2(54, 92)
+script = ExtResource("2_4eogf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1688628269]
+shape = SubResource("RectangleShape2D_c87yd")
+
+[node name="Char" type="AnimatedSprite2D" parent="CharacterBody2D/CollisionShape2D" unique_id=2073079535]
+scale = Vector2(0.14, 0.14)
+sprite_frames = ExtResource("3_2tlio")
+animation = &"forward"

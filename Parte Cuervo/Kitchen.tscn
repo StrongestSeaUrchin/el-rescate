@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://bp0t5h3eg23sa"]
+
+[ext_resource type="Texture2D" uid="uid://n583o4sdacoe" path="res://Sprites/BG/Kitchen.png" id="1_0mi6m"]
+[ext_resource type="Texture2D" uid="uid://3wielkslklv2" path="res://Sprites/ekey.png" id="2_axvxv"]
+[ext_resource type="Script" uid="uid://d2a0i3xy7x2cy" path="res://character_body_2d.gd" id="2_rlrs5"]
+[ext_resource type="SpriteFrames" uid="uid://8ddiid6l2e5w" path="res://Sprites/Character/Char.tres" id="3_axvxv"]
+[ext_resource type="Script" uid="uid://jaoh4vnaryeb" path="res://door.gd" id="3_eqcb7"]
+[ext_resource type="Script" uid="uid://p2y5of7isdrr" path="res://hide_s.gd" id="4_fn2rm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqcb7"]
+size = Vector2(44, 66)
+
+[node name="Node2D" type="Node2D" unique_id=1051445040]
+
+[node name="Room" type="TextureRect" parent="." unique_id=1584390328]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.5
+offset_top = -365.0
+offset_right = 241.5
+offset_bottom = 365.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0mi6m")
+
+[node name="Walls kitchen" type="StaticBody2D" parent="Room" unique_id=395491739]
+
+[node name="Walls" type="CollisionPolygon2D" parent="Room/Walls kitchen" unique_id=155756062]
+position = Vector2(-1.5258789e-05, -30.96051)
+scale = Vector2(0.9999999, 1.0363258)
+build_mode = 1
+polygon = PackedVector2Array(460, 699, 460.50006, 563.4912, 302.50006, 565.4211, 302, 554, 264, 554, 263, 477, 303, 477, 303.50006, 439.97794, 460.50006, 439.97794, 462, 250, 424, 250, 424, 226, 382, 226, 382, 188, 184, 188, 184, 237, 59, 237, 59, 261, 25, 261, 25, 342, 104, 342, 104, 407, 142, 407, 142, 447, 104, 447, 104, 588, 181, 588, 181, 699)
+
+[node name="Hiding spots kitchen" type="Node2D" parent="Room" unique_id=1316025578]
+
+[node name="table_ks" type="Area2D" parent="Room/Hiding spots kitchen" unique_id=773425868]
+
+[node name="table_ks_col" type="CollisionPolygon2D" parent="Room/Hiding spots kitchen/table_ks" unique_id=1764995678]
+position = Vector2(-2.720581, 6.1035156e-05)
+scale = Vector2(1.0366162, 0.99999994)
+polygon = PackedVector2Array(203, 699, 203, 571, 104, 571, 104, 699)
+
+[node name="hide" type="PanelContainer" parent="Room/Hiding spots kitchen/table_ks" unique_id=1911011427]
+offset_left = 535.5
+offset_top = 657.0
+offset_right = 675.5
+offset_bottom = 706.0
+
+[node name="Label" type="Label" parent="Room/Hiding spots kitchen/table_ks/hide" unique_id=346700735]
+layout_mode = 2
+text = "Presiona para 
+esconderte"
+justification_flags = 161
+
+[node name="Ekey" type="Sprite2D" parent="Room/Hiding spots kitchen/table_ks/hide" unique_id=1282949726]
+position = Vector2(-31.999996, 18.999996)
+scale = Vector2(0.036360238, 0.036360238)
+texture = ExtResource("2_axvxv")
+
+[node name="table_k" type="Area2D" parent="Room/Hiding spots kitchen" unique_id=1713212192]
+script = ExtResource("4_fn2rm")
+
+[node name="hides" type="PanelContainer" parent="Room/Hiding spots kitchen/table_k" unique_id=1792067461]
+offset_left = 535.5
+offset_top = 657.0
+offset_right = 675.5
+offset_bottom = 706.0
+
+[node name="Label" type="Label" parent="Room/Hiding spots kitchen/table_k/hides" unique_id=1652508940]
+layout_mode = 2
+text = "Presiona para 
+esconderte"
+justification_flags = 161
+
+[node name="Ekey" type="Sprite2D" parent="Room/Hiding spots kitchen/table_k/hides" unique_id=1130186308]
+position = Vector2(-31.999996, 18.999996)
+scale = Vector2(0.036360238, 0.036360238)
+texture = ExtResource("2_axvxv")
+
+[node name="table_k_col" type="CollisionPolygon2D" parent="Room/Hiding spots kitchen/table_k" unique_id=613981808]
+polygon = PackedVector2Array(460, 609, 242, 609, 242, 458.5556, 300, 459, 300, 404, 461, 404)
+
+[node name="Door" type="Area2D" parent="Room" unique_id=134367212]
+position = Vector2(1.5, 7)
+script = ExtResource("3_eqcb7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/Door" unique_id=4262359]
+polygon = PackedVector2Array(240.5, 693, 240.5, 680, 303.5, 679, 303.5, 693)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1539696614]
+zoom = Vector2(0.88, 0.88)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=87913763]
+position = Vector2(0, 267)
+script = ExtResource("2_rlrs5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1522315439]
+shape = SubResource("RectangleShape2D_eqcb7")
+
+[node name="Char" type="AnimatedSprite2D" parent="CharacterBody2D/CollisionShape2D" unique_id=1948930474]
+scale = Vector2(0.14, 0.14)
+sprite_frames = ExtResource("3_axvxv")
+animation = &"forward"
+
+[connection signal="body_entered" from="Room/Hiding spots kitchen/table_k" to="Room/Hiding spots kitchen/table_k" method="_on_s_body_entered"]
+[connection signal="body_exited" from="Room/Hiding spots kitchen/table_k" to="Room/Hiding spots kitchen/table_k" method="_on_s_body_exited"]
+[connection signal="body_entered" from="Room/Door" to="Room/Door" method="_on_body_entered"]

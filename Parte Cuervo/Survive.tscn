@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bin4kfo2dvopu"]
+
+[ext_resource type="Texture2D" uid="uid://bgx76y5ex7uld" path="res://Sprites/BG/pixil-frame-0 (30).png" id="1_16nuw"]
+
+[node name="Node2D" type="Node2D" unique_id=195109629]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=695390365]
+offset_left = -793.0
+offset_top = -475.0
+offset_right = 833.0
+offset_bottom = 434.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=167606961]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = -199.0
+offset_right = 398.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_16nuw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=508168555]
